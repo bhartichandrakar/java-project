@@ -2,17 +2,23 @@ package Leet;
 
 public class PalindromeNumber {
     public static void main(String[] args) {
-        boolean palindromeNumber = palindromeNumber(121);
+        boolean palindromeNumber = palindromeNumber(10);
         System.out.println(palindromeNumber);
 
     }
 
     private static boolean palindromeNumber(int n) {
-        int reversed = 0;
-
+        int r , sum =0, temp;
+        temp = n;
         while(n >0){
-            reversed = reversed * 10;
+            r = n % 10;
+            sum = (sum*10) + r;
+            n = n/10;
         }
-        return false;
+        if (temp == sum) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
