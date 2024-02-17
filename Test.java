@@ -2,10 +2,13 @@ public class Test {
 	
 	
 	public static void main(String[] args) {
-		int l = 2;
-		int r = 3;
-		int mid = l + (r -l)/2;
-		System.out.println(mid);
+		int i =1 , s= 1;
+		while (s <=11){
+			System.out.println(i);
+			i++;
+			System.out.println("S :::: " +s);
+			s = s + i;
+		}
 	}
 
 }
