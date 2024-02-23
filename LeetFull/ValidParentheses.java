@@ -5,7 +5,7 @@ import java.util.Stack;
 public class ValidParentheses {
 
     public static void main(String[] args) {
-        boolean result = isValid("()");
+        boolean result = isValid("[{(){}()}]");
         System.out.println(result);
     }
 
