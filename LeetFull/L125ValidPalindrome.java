@@ -2,12 +2,22 @@ package LeetFull;
 
 public class L125ValidPalindrome {
     public static void main(String[] args) {
-        boolean result = isPalindrome("A man, a plan, a canal: Panama");
+        boolean result = isPalindrome("amanaplanacanalpanama");
         System.out.println(result);
     }
 
     public static boolean isPalindrome(String s) {
-        return false;
+        int left = 0;
+        int right = s.length() - 1;
+        while (left <= right) {
+            if (s.charAt(left) == s.charAt(right)) {
+                left++;
+                right--;
+            }else{
+                return false;
+            }
+        }
+        return true;
     }
 }
 
