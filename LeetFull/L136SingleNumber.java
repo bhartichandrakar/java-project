@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class L136SingleNumber {
     public static void main(String[] args) {
-        int[] nums = {2,4,2};
+        int[] nums = {2,4,2,4,1,5};
         int result = singleNumber(nums);
         System.out.println(result);
         
