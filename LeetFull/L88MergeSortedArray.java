@@ -5,17 +5,56 @@ import java.util.Arrays;
 public class L88MergeSortedArray {
     public static void main(String[] args) {
 
-        int[] nums1 = {1,1,6,0,0,0};
-        int[] nums2 = {2,2,6};
-        merge(nums1, 3, nums2, 3);
+        int[] nums1 = {0};
+        int[] nums2 = {1};
+        merge(nums1, 0, nums2, 1);
         Arrays.stream(nums1).forEach(e -> System.out.println(e));
     }
 
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int index = 0;
-        for(int i = m; i < nums1.length;i++){
-            nums1[i] = nums2[index++];
+        //Initialization:
+
+        // i: Points to the last element of the filled part of nums1.
+        // j: Points to the last element of nums2.
+        // k: Points to the last element of the merged array in nums1 (initially at the end where elements will be placed).
+        int i = m - 1;
+        int j = n - 1;
+        int index = m + n - 1;
+        //Merge loop:
+
+        // Use a while loop to iterate as long as both i and j are not negative (meaning there are elements in both arrays).
+        // In each iteration, compare the elements at indices i and j:
+        // This effectively places the larger element from either array at the end of the merged portion (nums1[k]).
+        while(i >= 0 && j >= 0){
+            // If nums1[i] is greater, place it at nums1[k] and decrement both i and k.
+            if (nums1[i] < nums2[j]) {
+                nums1[index--] = nums2[j--];
+            }
+            // If nums2[j] is greater, place it at nums1[k] and decrement both j and k.
+            else {
+                nums1[index--] = nums1[i--];
+            }
         }
+        // Copy remaining elements from nums2 (if any)
+        //Copy remaining elements:
+
+        //After the loop, if elements remain in nums2 (because j might not have reached -1), 
+        //iterate through them using another while loop and copy them to the remaining positions of nums1 using k.
+        while (j >= 0){
+            nums1[index--] = nums2[j--];
+        }
+        // Time Complexity:
+
+        // O(m + n): This represents the linear time complexity of iterating through both arrays (nums1 and nums2) at most once and performing constant-time comparisons and assignments in each iteration.
+        // Space Complexity:
+
+        // O(1): The solution modifies the original array nums1 in-place and uses a constant amount of extra space for loop counters and temporary variables.
+
+
+        // int index = 0;
+        // for(int i = m; i < nums1.length;i++){
+        //     nums1[i] = nums2[index++];
+        // }
         //Arrays.sort(nums1);
                 
         // Bubble Sort: A simple but less efficient sorting algorithm. It iterates through the array repeatedly, 
