@@ -1,5 +1,8 @@
 package LeetFull;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class L141LinkedListCycle {
     public static void main(String[] args) {
 
@@ -17,25 +20,69 @@ public class L141LinkedListCycle {
         boolean result = hasCycle(node1);
         System.out.println(result);
     }
+    //(Floyd's Cycle-Finding Algorithm - "Tortoise and Hare" Approach):
+    //How it works:
 
+    //This leverages Floyd's Cycle-Finding Algorithm, where the "slow" pointer acts like a tortoise, moving slowly, and the "fast" pointer acts like a hare, 
+    //moving twice as fast. If there's a cycle, the "hare" will eventually loop around and meet the "tortoise" at some point within the cycle.
     public static boolean hasCycle(ListNode head) {
+        //Handle Edge Cases:
+
+        //If the head is null or has only one node (head.next == null), there's no cycle, so return false.
         if (head == null || head.next == null) {
             return false; // Empty list or single node has no cycle
         }
 
+        //Initialize Pointers:
+
+        // Create two pointers, slow and fast.
+        // Set both slow and fast to point to the head of the linked list initially.
         ListNode slow = head;
         ListNode fast = head.next;
-
+        //"Tortoise and Hare" Loop:
+        //Use a while loop to iterate as long as slow and fast are not equal.
         while (slow != fast) {
+            // Handle cases where 'fast' or 'fast.next' becomes null before meeting 'slow'
+            //If the loop completes without slow and fast meeting, it means there's no cycle in the linked list, so return false.
             if (fast == null || fast.next == null) {
-                return false; // No cycle found, fast reached the end
+                return false; // No cycle found, 'fast' reached the end
             }
+            //Inner Loop Condition: The loop terminates when either:
+            // fast or fast.next becomes null (meaning fast has reached the end of the list without encountering a cycle).
+            //Slow Pointer Movement: In each iteration, move slow by one node (slow = slow.next).
+            //Fast Pointer Movement: Move fast by two nodes (fast = fast.next.next). This allows fast to "catch up" to slow if there's a cycle.
+            // slow and fast meet at the same node within the cycle.
             slow = slow.next;
-            fast = fast.next.next; // Move fast pointer two steps at a time
+            fast = fast.next.next;
         }
+        //If slow and fast ever point to the same node, it indicates a cycle exists, so return true.
+        return true; // Cycle found, 'slow' and 'fast' meet
 
-        return true; // Cycle found, slow and fast meet
+        //Time Complexity:
+
+        // O(n): In the worst case, the loop might iterate through the entire linked list once (n times) if there's a long cycle at the end. However, 
+        //for most cases with or without a cycle, the loop terminates much faster. The time complexity is considered linear in the length of the linked list.
+        // Space Complexity:
+
+        // O(1): The solution only uses constant extra space for the two pointers (slow and fast), regardless of the linked list size.
     }
+
+    //brute force
+    // public static boolean hasCycle(ListNode head) {
+    //     if(head == null && head.next == null){
+    //         return false;
+    //     }
+    //     Set<ListNode> visited = new HashSet<ListNode>();
+    //     ListNode current = head;
+    //     while (current != null) {
+    //         if (visited.contains(current)) {
+    //             return true;
+    //         }
+    //         visited.add(current);
+    //         current = current.next;
+    //     }
+    //     return false;
+    // }
 
     public static class ListNode{
         int val;
