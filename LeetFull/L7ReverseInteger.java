@@ -15,13 +15,13 @@ public class L7ReverseInteger {
         // Initialize Variables:
 
         // int rev = 0;: This initializes a variable rev to 0, which will be used to store the reversed integer digit by digit.
-        int rev = 0;  // Reversed number
+        int rev = 0;
         //while (num != 0): This while loop continues as long as num (the absolute value) is not zero. 
         //In each iteration, the loop extracts a digit and adds it to the rev (reversed number).
         while (num != 0) {
             //This line extracts the last digit of num using the modulo operator (%). 
             //The remainder after dividing num by 10 is the last digit, which is stored in ld (last digit).
-            int ld = num % 10;  // Last digit nikala
+            int ld = num % 10;
             
             // Overflow check
             //Overflow check:
@@ -44,7 +44,7 @@ public class L7ReverseInteger {
         // The time complexity of this solution is O(log10(x)), which represents the number of digits in the input integer.
         // The space complexity is O(1) as it uses a constant amount of extra space for variables.
 
-        
+
         //brute-force
         // String str  = Integer.toString(x);
         // StringBuilder sb = new StringBuilder();
