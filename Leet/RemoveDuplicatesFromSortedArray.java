@@ -2,7 +2,7 @@ package Leet;
 
 public class RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
-        int result = removeDuplicates(new int[]{1,1,2});
+        int result = removeDuplicates(new int[]{1,2,2});
         System.out.println(result);
     }
 
