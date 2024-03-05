@@ -1,4 +1,4 @@
-package LeetFull;
+package Leet;
 
 public class LengthLastWord {
     public static void main(String[] args) {

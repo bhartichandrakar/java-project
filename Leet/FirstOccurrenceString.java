@@ -1,4 +1,4 @@
-package LeetFull;
+package Leet;
 
 public class FirstOccurrenceString {
     public static void main(String[] args) {

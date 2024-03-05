@@ -1,4 +1,4 @@
-package LeetFull;
+package Leet;
 
 public class L7ReverseInteger {
     public static void main(String[] args) {

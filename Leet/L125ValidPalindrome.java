@@ -1,4 +1,4 @@
-package LeetFull;
+package Leet;
 
 public class L125ValidPalindrome {
     public static void main(String[] args) {

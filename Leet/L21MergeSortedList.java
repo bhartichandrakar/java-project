@@ -1,4 +1,4 @@
-package LeetFull;
+package Leet;
 
 public class L21MergeSortedList {
     public static void main(String[] args) {

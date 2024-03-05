@@ -1,4 +1,4 @@
-package LeetFull;
+package Leet;
 
 import java.util.Arrays;
 
