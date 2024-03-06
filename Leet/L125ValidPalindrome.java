@@ -2,7 +2,7 @@ package Leet;
 
 public class L125ValidPalindrome {
     public static void main(String[] args) {
-        boolean result = isPalindrome(" ");
+        boolean result = isPalindrome("A man, a plan, a canal: Panama");
         System.out.println(result);
     }
 
